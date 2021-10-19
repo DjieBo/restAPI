@@ -8,4 +8,7 @@ module.exports = function(app){
 
     app.route('/ViewData')
     .get(MyJson.getalldata);
+
+    app.route('/ViewData/:id')
+    .get(MyJson.getbyID);
 }
