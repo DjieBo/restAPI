@@ -47,3 +47,29 @@ exports.addData = function(req, res){
             }
         });
 }
+
+// Update Data
+exports.updateData = function(req, res){
+    const {id, nim, nama, jurusan} = req.body;
+    connection.query('update mahasiswa set nim=?, nama=?, jurusan=? where id=?', [nim, nama, jurusan, id],
+        function(error, rows, fields){
+            if(error){
+                console.log(error);
+            }else{
+                respone.ok('Update Data Success', res);
+            }
+        });
+}
+
+// Delete Data
+exports.DeleteData = function(req, res){
+    // const{id} = req.body;
+    let id = req.body.id;
+    connection.query('delete from mahasiswa where id=?', [id], function(error, rows, fields){
+        if(error){
+            console.log(error);
+        }else{
+            respone.ok('Update Data Success', res);
+        }
+    });
+}
