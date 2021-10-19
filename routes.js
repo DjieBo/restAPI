@@ -11,4 +11,7 @@ module.exports = function(app){
 
     app.route('/ViewData/:id')
     .get(MyJson.getbyID);
+
+    app.route('/AddData')
+    .post(MyJson.addData);
 }
